@@ -19,15 +19,33 @@
 
 <main style="max-width: 500px; margin: 2rem auto; padding: 1rem; background: white; border-radius: 8px;">
     <h2>Formulir Pendaftaran Relawan</h2>
+
     <form id="form-relawan">
         <div style="margin-bottom: 1rem;">
         <label for="nama">Nama Lengkap:</label><br>
         <input type="text" id="nama" style="width: 100%; padding: 0.5rem;">
         </div>
+
         <div style="margin-bottom: 1rem;">
         <label for="email">Email:</label><br>
         <input type="email" id="email" style="width: 100%; padding: 0.5rem;">
         </div>
+
+        <div style="margin-bottom: 1rem;">
+            <label for="whatsapp">Nomor WhatsApp:</label><br>
+            <input type="tel" id="whatsapp" required placeholder="Contoh: 081234567890" style="width: 100%; padding: 0.5rem; margin-top: 0.3rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+            <label for="bidang">Pilihan Bidang Aksi:</label><br>
+            <select id="bidang" required style="width: 100%; padding: 0.5rem; margin-top: 0.3rem; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="">Pilih Bidang</option>
+                <option value="reboisasi">Reboisasi & Penanaman Pohon</option>
+                <option value="edukasi">Edukasi Pengelolaan Sampah</option>
+                <option value="bersih-pantai">Aksi Bersih Pantai & Sungai</option>
+            </select>
+        </div>
+        
         <button type="submit" style="width: 100%; padding: 0.7rem; background: #2e7d32; color: white; border: none; cursor: pointer;">Kirim Pendaftaran</button>
     </form>
     <p id="pesan-form" style="margin-top: 1rem; color: green;"></p>
