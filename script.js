@@ -42,32 +42,31 @@ if (formRelawan) {
     const email = document.getElementById('email').value.trim();
     const whatsapp = document.getElementById('whatsapp').value.trim();
     const domisili = document.getElementById('domisili').value.trim();
-    let bidang = document.getElementById('bidang').value;
+    let bidang = selectBidang ? selectBidang.value : '';
     const pesan = document.getElementById('pesan-form');
 
-    // Jika memilih "lainnya", munculkan kotak dialog untuk mengetik bidang sendiri
-    if (bidang === 'lainnya') {
-      bidang = prompt('Masukkan bidang aksi pilihan Anda:');
-      if (!bidang || bidang.trim() === '') {
-        pesan.style.color = 'red';
-        pesan.innerText = 'Mohon masukkan bidang aksi Anda!';
-        return;
-      }
-      bidang = bidang.trim();
+    // Jika memilih "lainnya", ambil teks dari input tambahan (#bidang-lain)
+    if (bidang === 'lainnya' && inputBidangLain) {
+      bidang = inputBidangLain.value.trim();
     }
 
     if (nama === '' || email === '' || whatsapp === '' || domisili === '' || bidang === '') {
       pesan.style.color = 'red';
-      pesan.innerText = 'Mohon isi semua kolom dan tentukan bidang aksi!';  
+      pesan.innerText = 'Mohon isi semua kolom termasuk domisili dan bidang aksi!';  
     } else {
-      // Ambil jumlah relawan dari localStorage 
-      let jumlahRelawan = localStorage.getItem('totalRelawan') ? parseInt(localStorage.getItem('totalRelawan')) : 120;
+      // Ambil jumlah relawan dari localStorage (mulai dari 0)
+      let jumlahRelawan = localStorage.getItem('totalRelawan') ? parseInt(localStorage.getItem('totalRelawan')) : 0;
       jumlahRelawan += 1; // Tambah 1 setiap ada yang daftar
       localStorage.setItem('totalRelawan', jumlahRelawan);
 
       pesan.style.color = 'green';
-      pesan.innerText = `Terima kasih ${nama}, pendaftaran untuk bidang "${bidang}" berhasil!`;
+      pesan.innerText = `Terima kasih ${nama} dari ${domisili}, pendaftaran untuk bidang "${bidang}" berhasil!`;
       formRelawan.reset();
+      
+      // Sembunyikan kembali input teks tambahan setelah form di-reset
+      if (wrapperBidangLain) {
+        wrapperBidangLain.style.display = 'none';
+      }
     }
   });
 }
@@ -75,6 +74,6 @@ if (formRelawan) {
 // Menampilkan Total Relawan Otomatis di Halaman Beranda
 const counterVolunteers = document.getElementById('counter-volunteers');
 if (counterVolunteers) {
-  const savedVolunteers = localStorage.getItem('totalRelawan') || '120';
+  const savedVolunteers = localStorage.getItem('totalRelawan') || '0';
   counterVolunteers.innerText = savedVolunteers;
 }
