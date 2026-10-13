@@ -33,3 +33,25 @@ const treeElem = document.getElementById('counter-tree');
     }, 30);
   }
 
+// Validasi Form Relawan
+const formRelawan = document.getElementById('form-relawan');
+if (formRelawan) {
+  formRelawan.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nama = document.getElementById('nama').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const bidang = document.getElementById('bidang').value;
+    const pesan = document.getElementById('pesan-form');
+
+    // Cek apakah ada kolom yang kosong
+    if (nama === '' || email === '' || whatsapp === '' || bidang === '') {
+      pesan.style.color = 'red';
+      pesan.innerText = 'Mohon isi semua kolom dan pilih bidang aksi!';
+    } else {
+      pesan.style.color = 'green';
+      pesan.innerText = `Terima kasih ${nama}, pendaftaran Anda untuk bidang "${bidang}" berhasil! Konfirmasi akan dikirim ke WhatsApp (${whatsapp}).`;
+      formRelawan.reset();
+    }
+  });
+}
