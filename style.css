@@ -101,3 +101,11 @@ body {
 .btn-detail:hover {
   background-color: #1b5e20;
 }
+
+/* css untuk info selengkapnya pada bagian edukasi.html */
+.info-tambahan {
+  display: none; 
+  margin-top: 10px; 
+  color: #2e7d32; 
+  font-size: 0.9rem;
+}
