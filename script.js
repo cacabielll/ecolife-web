@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Langsung mengarahkan ke halaman relawan.html saat diklik
       window.location.href = 'relawan.html';
     });
-  });  
+});
 
 //fitur halaman index.html
 const treeElem = document.getElementById('counter-tree');
