@@ -41,29 +41,33 @@ if (formRelawan) {
     const nama = document.getElementById('nama').value.trim();
     const email = document.getElementById('email').value.trim();
     const whatsapp = document.getElementById('whatsapp').value.trim();
-    let bidang = document.getElementById('bidang').value;
+    const bidang = document.getElementById('bidang').value;
     const pesan = document.getElementById('pesan-form');
 
-    // Jika pengguna memilih "Lainnya", munculkan kotak dialog untuk mengetik bidang aksi
-    if (bidang === 'lainnya') {
-      bidang = prompt('Masukkan bidang aksi pilihan Anda:');
-      // Jika pengguna membatalkan atau mengosongkan prompt
-      if (!bidang || bidang.trim() === '') {
-        pesan.style.color = 'red';
-        pesan.innerText = 'Mohon masukkan bidang aksi Anda!';
-        return;
-      }
-      bidang = bidang.trim();
-    }
-
-    // Cek apakah ada kolom yang kosong
     if (nama === '' || email === '' || whatsapp === '' || bidang === '') {
       pesan.style.color = 'red';
       pesan.innerText = 'Mohon isi semua kolom dan pilih bidang aksi!';
     } else {
+      // Ambil jumlah relawan sebelumnya dari localStorage (jika belum ada, mulai dari 0)
+      let jumlahRelawan = localStorage.getItem('totalRelawan') ? parseInt(localStorage.getItem('totalRelawan')) : 120; // Mulai dari angka awal misal 120
+      
+      // Tambah 1 setiap ada yang mendaftar
+      jumlahRelawan += 1;
+      
+      // Simpan kembali ke localStorage
+      localStorage.setItem('totalRelawan', jumlahRelawan);
+
       pesan.style.color = 'green';
-      pesan.innerText = `Terima kasih ${nama}, pendaftaran Anda untuk bidang "${bidang}" berhasil! Konfirmasi akan dikirim ke WhatsApp (${whatsapp}).`;
+      pesan.innerText = `Terima kasih ${nama}, pendaftaran Anda berhasil!`;
       formRelawan.reset();
     }
   });
+}
+
+// Menampilkan Angka di Beranda 
+const counterVolunteers = document.getElementById('counter-volunteers');
+if (counterVolunteers) {
+  // Ambil data dari localStorage, jika kosong tampilkan angka default (misal 120)
+  const savedVolunteers = localStorage.getItem('totalRelawan') || '120';
+  counterVolunteers.innerText = savedVolunteers;
 }
