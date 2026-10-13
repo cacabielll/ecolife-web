@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-//Fitur tombol halaman aksi.html
-const btnAksiList = document.querySelectorAll('.btn-aksi');
+//Fitur Tombol "Ikuti Aksi Ini" (Halaman aksi.html)
+  const btnAksiList = document.querySelectorAll('.btn-aksi');
   btnAksiList.forEach(button => {
     button.addEventListener('click', () => {
-      const namaAksi = button.getAttribute('data-event');
-      alert(`Terima kasih atas antusiasme Anda! Silakan mendaftar di halaman Gabung Relawan untuk mengikuti "${namaAksi}".`);
+      // Langsung mengarahkan ke halaman relawan.html saat diklik
+      window.location.href = 'relawan.html';
     });
-  });
+  });  
 
 //fitur halaman index.html
 const treeElem = document.getElementById('counter-tree');
