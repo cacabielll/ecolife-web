@@ -186,3 +186,9 @@ body {
   font-size: 0.9rem;
 }
 /* css untuk info selengkapnya pada bagian edukasi.html */
+.info-tambahannews{
+  display: none; 
+  margin-top: 10px; 
+  color: #2e7d32; 
+  font-size: 0.9rem;
+}
