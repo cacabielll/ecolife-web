@@ -20,7 +20,7 @@ const btnAksiList = document.querySelectorAll('.btn-aksi');
       alert(`Terima kasih atas antusiasme Anda! Silakan mendaftar di halaman Gabung Relawan untuk mengikuti "${namaAksi}".`);
     });
   });
-
+  
 //fitur halaman index.html
 const treeElem = document.getElementById('counter-tree');
   if (treeElem) {
