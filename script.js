@@ -33,6 +33,25 @@ const treeElem = document.getElementById('counter-tree');
     }, 30);
   }
 
+//Interaksi Tombol Selengkapnya pada bagian Edukasi
+const tombolDetail = document.querySelectorAll(".btn-detail");
+
+tombolDetail.forEach(function (tombol) {
+  tombol.addEventListener("click", function () {
+    const kartu = this.parentElement;
+    const infoTambahan = kartu.querySelector(".info-tambahan");
+
+    if (infoTambahan.style.display === "none" || infoTambahan.style.display === "") {
+      infoTambahan.style.display = "block";
+      this.textContent = "Tutup";
+    } else {
+      infoTambahan.style.display = "none";
+      this.textContent = "Baca Selengkapnya";
+    }
+  });
+});
+
+// selesai
 // Validasi Form Relawan
 // Memunculkan input teks tambahan jika memilih "Lainnya"
 const selectBidang = document.getElementById('bidang');
