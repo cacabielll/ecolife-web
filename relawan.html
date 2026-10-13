@@ -42,14 +42,21 @@
         </div>
 
         <div style="margin-bottom: 1.5rem;">
-            <label for="bidang">Pilihan Bidang Aksi:</label><br>
+        <label for="bidang">Pilihan Bidang Aksi:</label><br>
             <select id="bidang" required style="width: 100%; padding: 0.5rem; margin-top: 0.3rem; border: 1px solid #ccc; border-radius: 4px;">
                 <option value="">Pilih Bidang</option>
-                <option value="reboisasi">Reboisasi & Penanaman Pohon</option>
-                <option value="edukasi">Edukasi Pengelolaan Sampah</option>
-                <option value="bersih-pantai">Aksi Bersih Pantai & Sungai</option>
+                <option value="Reboisasi & Penanaman Pohon">Reboisasi & Penanaman Pohon</option>
+                <option value="Edukasi Pengelolaan Sampah">Edukasi Pengelolaan Sampah</option>
+                <option value="Aksi Bersih Pantai & Sungai">Aksi Bersih Pantai & Sungai</option>
+                <option value="lainnya">Lainnya (Ketik sendiri)</option>
             </select>
         </div>
+
+        <!-- Input teks tambahan yang awalnya disembunyikan (display: none) -->
+        <div id="wrapper-bidang-lain" style="margin-bottom: 1.5rem; display: none;">
+        <label for="bidang-lain">Tuliskan Bidang Aksi Lainnya:</label><br>
+        <input type="text" id="bidang-lain" placeholder="Contoh: Kampanye Hemat Energi" style="width: 100%; padding: 0.5rem; margin-top: 0.3rem; border: 1px solid #ccc; border-radius: 4px;">
+    </div>
         
         <button type="submit" style="width: 100%; padding: 0.7rem; background: #2e7d32; color: white; border: none; cursor: pointer;">Kirim Pendaftaran</button>
     </form>
