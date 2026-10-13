@@ -41,6 +41,7 @@ if (formRelawan) {
     const nama = document.getElementById('nama').value.trim();
     const email = document.getElementById('email').value.trim();
     const whatsapp = document.getElementById('whatsapp').value.trim();
+    const domisili = document.getElementById('domisili').value.trim();
     let bidang = document.getElementById('bidang').value;
     const pesan = document.getElementById('pesan-form');
 
@@ -55,9 +56,9 @@ if (formRelawan) {
       bidang = bidang.trim();
     }
 
-    if (nama === '' || email === '' || whatsapp === '' || bidang === '') {
+    if (nama === '' || email === '' || whatsapp === '' || domisili === '' || bidang === '') {
       pesan.style.color = 'red';
-      pesan.innerText = 'Mohon isi semua kolom dan pilih bidang aksi!';
+      pesan.innerText = 'Mohon isi semua kolom dan tentukan bidang aksi!';  
     } else {
       // Ambil jumlah relawan dari localStorage 
       let jumlahRelawan = localStorage.getItem('totalRelawan') ? parseInt(localStorage.getItem('totalRelawan')) : 120;
