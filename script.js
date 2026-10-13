@@ -41,8 +41,20 @@ if (formRelawan) {
     const nama = document.getElementById('nama').value.trim();
     const email = document.getElementById('email').value.trim();
     const whatsapp = document.getElementById('whatsapp').value.trim();
-    const bidang = document.getElementById('bidang').value;
+    let bidang = document.getElementById('bidang').value;
     const pesan = document.getElementById('pesan-form');
+
+    // Jika pengguna memilih "Lainnya", munculkan kotak dialog untuk mengetik bidang aksi
+    if (bidang === 'lainnya') {
+      bidang = prompt('Masukkan bidang aksi pilihan Anda:');
+      // Jika pengguna membatalkan atau mengosongkan prompt
+      if (!bidang || bidang.trim() === '') {
+        pesan.style.color = 'red';
+        pesan.innerText = 'Mohon masukkan bidang aksi Anda!';
+        return;
+      }
+      bidang = bidang.trim();
+    }
 
     // Cek apakah ada kolom yang kosong
     if (nama === '' || email === '' || whatsapp === '' || bidang === '') {
